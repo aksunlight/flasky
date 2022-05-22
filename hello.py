@@ -1,13 +1,14 @@
 from flask import Flask, render_template
 from flask_script import Manager
 
-app = Flask(__name__, template_folder='./app/templates/')
+#static_folder参数和template_folde参数需要设置
+app = Flask(__name__, static_folder = './app/static/', template_folder='./app/templates/')
 
 manager = Manager(app)
 
 @app.route('/')
 def index():
-    return render_template('base.html')
+    return render_template('index.html')
 
 @app.route('/user/<name>')
 def user(name):
